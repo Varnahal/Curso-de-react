@@ -1,17 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
+import Numero from "./componentes/Numero";
+import Nome from "./componentes/Nome";
 import './App.css'
 
 export default function App() {
-  const textoDestaque = {
-    color:'red',
-    fontSize:'100px'
-  }
+  const[num,setnum] = useState(10)
+  const[nome,setNome] = useState('Sem Nome registrado')
   return(
-    <section className="caixa">
-      <h1 style={textoDestaque}>Varnahal</h1>
-      <h2 style={{color:'black',fontSize:'50px'}}>Curso de react</h2>
-      <p className="texto">Se inscreva no vanal varnahal</p>
-      <a href="#">Clique em mim</a>
-    </section>
+    <>
+      <p>o valor de state é: {num}</p>
+      <Numero num={num} setNum = {setnum}/>
+      <Nome nome={nome} setNome={setNome}/>
+    </>
   );
 }
