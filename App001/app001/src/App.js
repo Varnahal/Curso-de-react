@@ -1,20 +1,25 @@
-import React,{useState} from "react";
-import './App.css'
+import logo from './logo.svg';
+import './App.css';
 
-export default function App() {
-  const[pal,setpal] = useState('')
-  function EventBTN(){
-    let value = document.getElementById("inputId").value
-    
-    if(value == "buraco"){
-      setpal('Buraco negro')
-    }
-  }
-  return(
-    <>
-    <input type="text" id="inputId" ></input>
-    <button onClick={()=>{EventBTN()}}>enviar</button>
-    <p>{pal}</p>
-    </>
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
+
+export default App;
