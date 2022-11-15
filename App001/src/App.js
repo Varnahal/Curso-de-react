@@ -1,10 +1,12 @@
 import logo from './logo.svg';
+import Topo from './componentes/Topo.js';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Topo/>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
