@@ -1,20 +1,33 @@
-import React,{useState} from 'react';
-import Nota from './componentes/Nota.js';
-import Resultado from './componentes/Resultado.js';
+import React,{useEffect,useState} from 'react';
 import './App.css';
 
 function App() {
-
-    const [notas,setnotas] = useState({"nota1":0,"nota2":0,"nota3":0,"nota4":0,})
-
   
+    // localStorage.setItem("nome","Vanahal");
+    // localStorage.setItem("nome","Daniel");
+    // localStorage.getItem("nome");
+    // localStorage.removeItem("nome")
+
+    const[nome,setnome] = useState("");
+
+    const armazenar = (Chave,valor)=>{
+      localStorage.setItem(Chave,valor)
+    }
+    const Consultar = (Chave)=>{
+      alert(localStorage.getItem(Chave))
+    }
+    const apagar = (Chave)=>{
+      localStorage.removeItem(Chave)
+      alert("removido com sucesso")
+    }
+
   return (
     <>
-      <Nota num={1} nota={notas.nota1} setnotas={setnotas} notas={notas}/>
-      <Nota num={2} nota={notas.nota2} setnotas={setnotas} notas={notas}/>
-      <Nota num={3} nota={notas.nota3} setnotas={setnotas} notas={notas}/>
-      <Nota num={4} nota={notas.nota4} setnotas={setnotas} notas={notas}/>
-      <Resultado somaNotas={notas.nota1+notas.nota2+notas.nota3+notas.nota4}/>
+      <label>Digite um nome</label>
+      <input type="text" value={nome} onChange={(e)=>{setnome(e.target.value)}}></input>
+      <button onClick={()=>{armazenar("nome",nome)}}>Guardar</button>
+      <button onClick={()=>{Consultar("nome")}}>consultar</button>
+      <button onClick={()=>{apagar("nome")}}>apagar</button>
     </>
   );
 }
