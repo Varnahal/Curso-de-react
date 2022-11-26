@@ -18,15 +18,35 @@ export default class Carro extends React.Component{
                 ligado:!state.ligado
             })
         )
+        if(this.state.ligado){
+            this.setState(
+                (state)=>({
+                    velatual:0
+                })
+            )
+        }
     }
     acelerar(){
-        this.setState(
-            (props)=>(
-                {velatual:this.state.velatual +this.props.fator}
+        if(this.state.ligado){
+            this.setState(
+                (props)=>(
+                    {velatual:this.state.velatual +this.props.fator}
+                )
             )
-            
-        )
+        }
+        
     }
+
+    componentDidMount(){
+        console.log('o carro foi criado')
+    }
+    componentDidUpdate(){
+        console.log('o carro foi atualizado')
+    }
+    componentWillUnmount(){
+        console.log('o carro foi removido')
+    }
+
     render(){
         return(
             <div>
