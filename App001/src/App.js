@@ -1,28 +1,40 @@
-import React,{useState} from 'react';
-import Globais from './componentes/Globais.js';
-import Info from './componentes/info.js';
+import React,{useState,useEffect} from 'react';
+import Pagina1 from './componentes/Pagina1.js';
+import Pagina2 from './componentes/Pagina2.js';
 import './App.css';
 
 function App() {
-  const [resumo,setresumo] = useState(Globais.resumo);
-  const gravarresumo = ()=>{
-    Globais.resumo = resumo
+
+  const[pagina,setpagina] = useState(0)
+
+  const linksPaginas = (p)=>{
+    setpagina(p)
   }
-  const verresumo = ()=>{
-    alert(Globais.resumo)
+
+
+  const retornarpagina = ()=>{
+    if(pagina==1){
+      return <Pagina1/>
+    }else if(pagina==2){
+      return <Pagina2/>
+    }else{
+      return  <div>
+                <button onClick={()=>{setpagina(1)}}>Pagina1</button>
+                <button onClick={()=>{setpagina(2)}}>Pagina2</button>
+              </div>
+    
+    }
+
   }
 
   return (
-    <>
-      <p>canal: {Globais.canal}</p>
-      <p>curso: {Globais.curso}</p>
-      <p>ano: {Globais.ano}</p>
-      <hr></hr>
-      <Info></Info>
-      <input type="text" value={resumo} onChange={(e)=>{setresumo(e.target.value)}}></input>
-      <button onClick={()=>{gravarresumo()}}>Gravar</button>
-      <button onClick={()=>{verresumo()}}>ver</button>
-    </>
+    
+      <>
+      {retornarpagina()}
+      
+      </>
+      
+    
   );
 }
 
