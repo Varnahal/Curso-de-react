@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Fcalcular(p,a,sr){
+export default function Fcalcular(props){
         const calc=()=>{
-            sr(p/(a*a));
+            props.sr(props.p/(props.a*props.a));
         }
         return(
           <div>

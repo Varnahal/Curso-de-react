@@ -16,11 +16,11 @@ export default function App(){
   return (
     
       <>
-        {Fpeso(peso,setPeso)}
-        {Faltura(altura,setAltura)}
-        {Fcalcular(peso,altura,setResultado)}
-        {Resultado(resultado)}
-        {TabelaImc()}
+        <Fpeso p={peso} sp={setPeso}/>
+        <Faltura a={altura} sa={setAltura}/> 
+        <Fcalcular p={peso} a={altura} sr={setResultado}/>
+        <Resultado res={resultado}/>
+        <TabelaImc/>
       </>
       
     
