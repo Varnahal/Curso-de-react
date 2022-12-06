@@ -1,73 +1,28 @@
 import React,{useState,useEffect} from 'react';
+import TabelaImc from './componentes/TabelaImc.js';
+import Fpeso from './componentes/Fpeso.js';
+import Faltura from './componentes/Faltura.js';
+import Fcalcular from './componentes/Fcalcular.js';
+import Resultado from './componentes/Resultado.js'
 import './App.css';
 
-  const carros= [
-    {categoria:"esporte",preco:"110000",modelo:"Golf Gti"},
-    {categoria:"esporte",preco:"120000",modelo:"camaro"},
-    {categoria:"SUV",preco:"85000",modelo:"HRV"},
-    {categoria:"SUV",preco:"83000",modelo:"T-Cross"},
-    {categoria:"Ultilitario",preco:"125000",modelo:"Hillux"},
-    {categoria:"Ultilitario",preco:"90000",modelo:"Ranger"},
-
-  ]
-  const linhas=(cat)=>{
-    const li=[]
-    carros.forEach(
-      (carro)=>{
-        if(carro.categoria.toUpperCase()==cat.toUpperCase()||cat==''){
-          li.push(
-            <tr>
-              <td>{carro.categoria}</td>
-              <td>{carro.preco}</td>
-              <td>{carro.modelo}</td>
-            </tr>
-          )
-        }
-      }
-    )
-    return li
-  }
-
-  const tabelacarros=(cat)=>{
-    return(
-      <table border= '1' style={{borderCollapse:'colapse'}}>
-        <thead>
-          <tr>
-            <th>Categoria</th><th>Preço</th><th>Modelo</th>
-          </tr>
-        </thead>
-        <tbody>
-          {linhas(cat)}
-        </tbody>
-      </table>
-    )
-
-  }
-  const pesquisacat=(cat,scat)=>{
-    return(
-      <div>
-        <label>Digite uma categoria</label>
-        <input type='text' value={cat} onChange={(e)=>{scat(e.target.value)}}></input>
-      </div>
-    )
-
-  }
-
-function App() {
-  const [categoria,setcategoria] = useState('');
 
 
+export default function App(){
+  const[peso,setPeso] = useState(0);
+  const[altura,setAltura] = useState(0);
+  const[resultado,setResultado] = useState(0);
 
   return (
     
       <>
-      {pesquisacat(categoria,setcategoria)}
-        {tabelacarros(categoria)}
-      
+        {Fpeso(peso,setPeso)}
+        {Faltura(altura,setAltura)}
+        {Fcalcular(peso,altura,setResultado)}
+        {Resultado(resultado)}
+        {TabelaImc()}
       </>
       
     
   );
 }
-
-export default App;

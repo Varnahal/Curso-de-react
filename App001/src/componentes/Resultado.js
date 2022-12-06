@@ -1,10 +1,9 @@
 import React from "react";
 
-export default function Resultado(props){
+export default function Resultado(r){
     return(
-    <div>
-        <p>Soma das notas:{props.somaNotas}</p>
-        <p>{props.somaNotas >=60?"Aprovado":"Reprovado"}</p>
-      </div>
-    )
+        <div>
+          <p>Resultado:{r.toFixed(2)}</p>
+        </div>
+      )
 }
