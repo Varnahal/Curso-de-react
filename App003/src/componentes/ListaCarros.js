@@ -1,15 +1,28 @@
-import axios from 'axios'
 import React,{useEffect,useState} from 'react'
 
 export default function ListaCarros(){
 
     const [carros,setcarros]=useState([])
     useEffect(()=>{
-        axios.get('https://DeeppinkNumbSpof.danielmarcelin3.repl.co')
-        .then(res=>{
-            const dadosCarros=res.data
-            setcarros(dadosCarros)
-        })
+        fetch('https://DeeppinkNumbSpof.danielmarcelin3.repl.co')
+            .then(res=>res.json())
+            .then(
+                (resultado)=>{
+                    setcarros(resultado)
+
+            })
+
+
+
+
+
+
+
+        // axios.get('https://DeeppinkNumbSpof.danielmarcelin3.repl.co')
+        // .then(res=>{
+        //     const dadosCarros=res.data
+        //     setcarros(dadosCarros)
+        // })
     })
 
     return(
